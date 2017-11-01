@@ -11,10 +11,17 @@ There are two sets of test cases one for The Direction and another for the movem
 Class Details :
 
 RobotDemo : This contains the main class and this can be directly executed from intellij or Eclipse
-RobotMovementHandler : Contains the robot and the corresponding grid, This class takes in the command for the movement and uses other model classes to place the Robot. This also checks the validity of the Positions too
+
+RobotMovementHandler : Contains the robot and the corresponding grid, This class takes in the command for the movement and uses other model classes to place the Robot. This also checks the validity of the Positions too\
+
 Robot : This contains the robot initializing class which associates the location to a robot
+
 RobotLocation : This the XY axis location for a robot and its corresponding Direction
+
 Direction : The Enum defined to hold the direction of the robots
+
 Grid : A generic interface containing single method for validation of robot position within the grid
+
 RobotMovementCommand : contains the list of command viz., Place, Move, Left, Right, and Report
+
 RectangularGrid : Holding the implementation for Grid
