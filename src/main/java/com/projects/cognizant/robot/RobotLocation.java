@@ -3,9 +3,9 @@ package com.projects.cognizant.robot;
 public class RobotLocation {
     private int x;
     private int y;
-    Direction direction;
+    private Direction direction;
 
-    public RobotLocation(RobotLocation robotLocation) {
+    private RobotLocation(RobotLocation robotLocation) {
         this.x = robotLocation.getX();
         this.y = robotLocation.getY();
         this.direction = robotLocation.getDirection();
@@ -29,21 +29,21 @@ public class RobotLocation {
         return this.direction;
     }
 
-    public void setDirection(Direction direction) {
-        this.direction = direction;
+    void setDirection(Direction newDirection) {
+        direction = newDirection;
     }
 
-    private void changeTheLocation(int x, int y) {
-        this.x = this.x + x;
-        this.y = this.y + y;
+    private void changeTheLocation(int valX, int valY) {
+        x = x + valX;
+        y = y + valY;
     }
 
     public RobotLocation getNextLocation() throws RobotException {
-        if (this.direction == null)
+        if (direction == null)
             throw new RobotException("Invalid robot direction");
 
         RobotLocation robotLocation = new RobotLocation(this);
-        switch (this.direction) {
+        switch (direction) {
             case NORTH:
                 robotLocation.changeTheLocation(0, 1);
                 break;
