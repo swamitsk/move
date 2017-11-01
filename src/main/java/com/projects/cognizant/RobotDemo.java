@@ -10,9 +10,6 @@ public class RobotDemo {
 
         Scanner scanner = new Scanner(System.in);
 
-            System.err.println("No console.");
-            System.exit(1);
-
         RectangularGrid rectangularGrid = new RectangularGrid(10, 10);
         Robot robot = new Robot();
         RobotMovementHandler robotMovementHandler = new RobotMovementHandler(rectangularGrid, robot);
