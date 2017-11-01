@@ -4,8 +4,8 @@ import com.projects.cognizant.robot.*;
 
 public class RobotMovementHandler {
 
-    Grid rectangularGrid;
-    Robot robot;
+    private Grid rectangularGrid;
+    private Robot robot;
 
     public RobotMovementHandler(Grid squareGrid, Robot robot) {
         this.rectangularGrid = squareGrid;
@@ -52,14 +52,14 @@ public class RobotMovementHandler {
         return performMovementBasedOnAction(robotMovementCommand, x, y, direction);
     }
 
-    private RobotMovementCommand validatePlaceAction(String[] args) throws RobotException {
+    private RobotMovementCommand validatePlaceAction(String[] actionParameters) throws RobotException {
         RobotMovementCommand robotMovementCommand;
         try {
-            robotMovementCommand = RobotMovementCommand.valueOf(args[0]);
+            robotMovementCommand = RobotMovementCommand.valueOf(actionParameters[0]);
         } catch (IllegalArgumentException e) {
             throw new RobotException("Invalid robotMovementCommand");
         }
-        if (robotMovementCommand == RobotMovementCommand.PLACE && args.length < 2) {
+        if (robotMovementCommand == RobotMovementCommand.PLACE && actionParameters.length < 2) {
             throw new RobotException("Invalid robotMovementCommand");
         }
         return robotMovementCommand;
@@ -84,9 +84,6 @@ public class RobotMovementHandler {
     }
 
     private String getCurrentLocation() {
-        if (robot.getRobotLocation() == null)
-            return null;
-
-        return robot.getRobotLocation().getX() + "," + robot.getRobotLocation().getY() + "," + robot.getRobotLocation().getDirection().toString();
+        return robot.getRobotLocation() == null ? null : robot.getRobotLocation().getX() + "," + robot.getRobotLocation().getY() + "," + robot.getRobotLocation().getDirection().toString();
     }
 }
