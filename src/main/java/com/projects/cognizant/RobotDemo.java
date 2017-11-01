@@ -10,17 +10,15 @@ public class RobotDemo {
 
         Scanner scanner = new Scanner(System.in);
 
-        if (scanner == null) {
             System.err.println("No console.");
             System.exit(1);
-        }
 
-        RectangularGrid rectangularGrid = new RectangularGrid(10, 5);
+        RectangularGrid rectangularGrid = new RectangularGrid(10, 10);
         Robot robot = new Robot();
         RobotMovementHandler robotMovementHandler = new RobotMovementHandler(rectangularGrid, robot);
 
         System.out.println("Select an action for the robot:");
-        System.out.println("\'PLACE X,Y,NORTH|SOUTH|EAST|WEST\', MOVE, LEFT, RIGHT, REPORT or Q");
+        System.out.println("\'PLACE X,Y(x and y are coordinates in the grid) ,NORTH or SOUTH or EAST or WEST'\n MOVE\n LEFT\n RIGHT\n REPORT\n Q to quit");
 
         while (true) {
             String inputString = scanner.nextLine();
